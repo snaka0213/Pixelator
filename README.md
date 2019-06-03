@@ -6,7 +6,7 @@ A python retro game picture converter from image
 
 Module: `Pillow`, `scikit-learn`
 
-Put `main.py` and the original picture in the same directory (supported formats -> [Pillow - Image file formats](https://pillow.readthedocs.io/en/5.1.x/handbook/image-file-formats.html#image-file-formats)).
+Put `main.py` and the original picture in the same directory (supported formats -> [Pillow - Image file formats](https://pillow.readthedocs.io/en/latest/handbook/image-file-formats.html)).
 
 ```bash
 python main.py
