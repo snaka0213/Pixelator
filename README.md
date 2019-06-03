@@ -18,7 +18,7 @@ python main.py
 
 |Input| |Mosaic|
 |---|---|---|
-|<img src = "https://github.com/snaka0213/dot_converter/blob/images/before.png" width = "144x144">| → |<img src = "https://github.com/snaka0213/dot_converter/blob/images/mosaic.png" width = "144x144">|
+|<img src = "https://github.com/snaka0213/dot_converter/blob/images/before.png" width = "100x100">| → |<img src = "https://github.com/snaka0213/dot_converter/blob/images/mosaic.png" width = "100x100">|
 
 (In this example, the `filter_size` is assumed to be `5`.)
 
@@ -26,6 +26,6 @@ python main.py
 
 |Mosaic| |Output|
 |---|---|---|
-|<img src = "https://github.com/snaka0213/dot_converter/blob/images/mosaic.png" width = "144x144">| → |<img src = "https://github.com/snaka0213/dot_converter/blob/images/after.png" width = "144x144">|
+|<img src = "https://github.com/snaka0213/dot_converter/blob/images/mosaic.png" width = "100x100">| → |<img src = "https://github.com/snaka0213/dot_converter/blob/images/after.png" width = "100x100">|
 
 (In this example, the `k = num_of_colors` is assumed to be `16`.)
