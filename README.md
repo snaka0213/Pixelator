@@ -20,9 +20,12 @@ python main.py
 |---|---|---|
 |<img src = "https://github.com/snaka0213/dot_converter/blob/images/before.png" width = "200x200">| -> |<img src = "https://github.com/snaka0213/dot_converter/blob/images/mosaic.png" width = "200x200">|
 
+(In this example, the `filter_size` is assumed to be `5` pixel.)
 
 2. Do color reduction processing via k-means clustering of colors which is used in the mosaic picture:
 
 |Mosaic| |Output|
 |---|---|---|
 |<img src = "https://github.com/snaka0213/dot_converter/blob/images/mosaic.png" width = "200x200">| -> |<img src = "https://github.com/snaka0213/dot_converter/blob/images/after.png" width = "200x200">|
+
+(In this example, the `k = num_of_colors` is assumed to be `16`.)
