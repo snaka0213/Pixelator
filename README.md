@@ -4,7 +4,12 @@ A python retro game picture converter
 
 ## How to Use
 
-Module: `Pillow`, `scikit-learn`
+__Install packages__
+```bash
+pip install -r pip/requirements.txt
+```
+
+__How to Convert Picture__
 
 Put `main.py` and the original picture in the same directory (supported formats -> [Pillow - Image file formats](https://pillow.readthedocs.io/en/latest/handbook/image-file-formats.html)).
 
@@ -12,7 +17,7 @@ Put `main.py` and the original picture in the same directory (supported formats 
 python main.py
 ```
 
-##  How it Works
+## How it Works
 
 1. Convert the original picture to a mosaic picture:
 
