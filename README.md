@@ -33,4 +33,4 @@ python main.py
 |---|---|---|
 |<img src = "https://github.com/snaka0213/dot_converter/blob/images/mosaic.png" width = "100x100">| → |<img src = "https://github.com/snaka0213/dot_converter/blob/images/after.png" width = "100x100">|
 
-(In this example, the `k = num_of_colors` is assumed to be `16`.)
+(In this example, the `k = colors` is assumed to be `16`.)
