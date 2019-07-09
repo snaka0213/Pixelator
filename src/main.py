@@ -2,9 +2,9 @@
 import sys
 from converter import DotConverter
 
-filter = int(input("Filter size? >> "))
-color = int(input("Number of colors? >> "))
-dtcv = DotConverter(filter=filter, color=color)
+filter_size = int(input("Filter size? >> "))
+colors = int(input("Number of colors? >> "))
+dtcv = DotConverter(filter_size=filter_size, colors=colors)
 
 path = input("File name? >> ")
 dtcv.input(path)
@@ -16,4 +16,4 @@ if select != 'y':
     sys.exit()
 else:
     new_path = input("New file name? >> ")
-    new_img.save(new_path)
+    dtcv.save(new_path)

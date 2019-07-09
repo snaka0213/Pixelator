@@ -4,9 +4,9 @@ from PIL import Image
 from sklearn.cluster import KMeans
 
 class DotConverter(object):
-    def __init__(self, filter: int, color: int, image=None):
-        self._filter = filter # the length of filter square's side
-        self._color = color # the number of colors
+    def __init__(self, filter_size: int, colors: int, image=None):
+        self._filter = filter_size # the length of filter square's side
+        self._colors = colors # the number of colors
         self._image = image # input image: Image.Image
 
     # input image
@@ -36,25 +36,25 @@ class DotConverter(object):
         if image:
             features = []
 
-            filter = self._filter
+            filter_size = self._filter
             width, height = self.get_size_rescaled(image.size)
             pixels_matrix = self.get_pixels_matrix(width, height)
             if change:
                 self._image = Image.new('RGB', (width, height))
 
-            for y in range(0, height, filter):
-                for x in range(0, width, filter):
-                    part_img = pixels_matrix[y:y+filter, x:x+filter]
+            for y in range(0, height, filter_size):
+                for x in range(0, width, filter_size):
+                    part_img = pixels_matrix[y:y+filter_size, x:x+filter_size]
                     single_color = self._means_of_color(part_img)
                     features.append(single_color)
                     if change:
-                        self._draw_part_img(x, y, filter, filter, single_color)
+                        self._draw_part_img(x, y, filter_size, filter_size, single_color)
 
             return features
 
     # retro game picture converter
     def convert(self):
-        filter = self._filter
+        filter_size = self._filter
         image = self._image
         if image:
             width, height = self.get_size_rescaled(image.size)
@@ -65,11 +65,11 @@ class DotConverter(object):
 
             self._image = Image.new('RGB', (width, height))
             ind_y, ind_x = 0, 0
-            for y in range(0, height, filter):
+            for y in range(0, height, filter_size):
                 ind_x = 0
-                for x in range(0, width, filter):
-                    pixel_color = centers[labels[ind_x + (ind_y*width)//filter]]
-                    self._draw_part_img(x, y, filter, filter, pixel_color)
+                for x in range(0, width, filter_size):
+                    pixel_color = centers[labels[ind_x + (ind_y*width)//filter_size]]
+                    self._draw_part_img(x, y, filter_size, filter_size, pixel_color)
                     ind_x += 1
                 ind_y += 1
 
@@ -78,7 +78,7 @@ class DotConverter(object):
     ## labels: the labels of cluster
     def k_means_clustering(self, features: list) -> dict:
         # TODO: make it does not change `features`
-        kmeans = KMeans(n_clusters=self._color).fit(features)
+        kmeans = KMeans(n_clusters=self._colors).fit(features)
         centers = [tuple(int(x) for x in z) for z in kmeans.cluster_centers_]
         labels = kmeans.labels_
         return {"centers": centers, "labels": labels}
@@ -95,10 +95,10 @@ class DotConverter(object):
 
     # return rescaled size which is multiple of filter size
     def get_size_rescaled(self, size: tuple) -> tuple:
-        filter = self._filter
-        return tuple([(side//filter)*filter for side in size])
+        filter_size = self._filter
+        return tuple([(side//filter_size)*filter_size for side in size])
 
-    # paint a part of self with single_color
+    # paint a part of self with `single_color`
     def _draw_part_img(self, start_w, start_h, part_size_w, part_size_h, single_color):
         for y in range(start_h, start_h + part_size_h):
             for x in range(start_w, start_w + part_size_w):
