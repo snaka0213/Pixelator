@@ -27,7 +27,7 @@ python main.py
 
 (In this example, the `filter_size` is assumed to be `5`.)
 
-2. Do color reduction processing via k-means clustering of colors which is used in the mosaic picture:
+2. Do color reduction processing via k-means clustering of colors used in the mosaic picture:
 
 |Mosaic| |Output|
 |---|---|---|
