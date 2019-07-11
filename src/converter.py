@@ -10,7 +10,7 @@ class DotConverter(object):
         self._image = image # input image: Image.Image
 
     # input image
-    def input(self, path: str):
+    def load(self, path: str):
         self._image = Image.open(path)
 
     # show image
