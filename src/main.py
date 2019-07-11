@@ -7,7 +7,7 @@ colors = int(input("Number of colors? >> "))
 dtcv = DotConverter(filter_size=filter_size, colors=colors)
 
 path = input("File name? >> ")
-dtcv.input(path)
+dtcv.load(path)
 dtcv.convert()
 
 dtcv.show()
